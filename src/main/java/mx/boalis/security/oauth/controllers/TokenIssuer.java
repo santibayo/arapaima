@@ -32,6 +32,10 @@ public class TokenIssuer implements Handler {
         String redirectUri = ctx.formParam("redirect_uri");
         String code = ctx.formParam("code");
         String tenant = ctx.pathParam("app");
+        if (grantType==null || clientId == null || clientSecret == null || code==null){
+            ctx.status(400);
+            return;
+        }
 
         if (grantType.equals("authorization_code")){
             logger.info("request type: authorization code");
@@ -41,8 +45,12 @@ public class TokenIssuer implements Handler {
                 ctx.status(403);
                 return;
             }
-
             String uuid = loginSession.getLoginKeyByCode(code);
+            if (uuid==null){
+                ctx.status(404);
+                logger.info("trying to recover previous code ");
+                return;
+            }
             Map<String,String> userData = loginSession.get(uuid);
             loginSession.clear(uuid);
             logger.info(String.format(" performing clean up: uuid = %s, data => %s",uuid,userData.toString()) );
@@ -51,18 +59,19 @@ public class TokenIssuer implements Handler {
             if (hasMoreSessions){
                 boolean canCreateMultipleSessions = configService.hasMultipleSessionsAllowed(tenant);
                 if (!canCreateMultipleSessions){
+                    logger.error("Too many sessions for subject = %s ",subject);
                     ctx.status(429);
                     return;
                 }
             }
-
             OAuthTokenBean response = tokenService.issueTokens(userData);
+            logger.info("tokens generated.");
+            /*
+            if (redirectUri != null){
+                ctx.redirect(redirectUri);
+            }*/
             ctx.json(response);
-
+            return;
         }
-
-
     }
-
-
 }

@@ -55,4 +55,9 @@ public class HardCodedTenantConfigService implements TenantConfigService {
         return "http://123.com";
     }
 
+    @Override
+    public boolean hasMultipleSessionsAllowed(String tenant) {
+        return false;
+    }
+
 }
