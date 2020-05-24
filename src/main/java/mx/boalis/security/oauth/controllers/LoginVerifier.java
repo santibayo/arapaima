@@ -12,11 +12,12 @@ import org.slf4j.LoggerFactory;
 public class LoginVerifier implements Handler {
     private final TenantConfigService config;
     private final AuthorizationCodeService authorizationCodeService;
-    private final Logger logger = LoggerFactory.getLogger(AuthorizationCodeService.class);
+    private final Logger logger = LoggerFactory.getLogger(LoginVerifier.class);
 
     public LoginVerifier(TenantConfigService config, AuthorizationCodeService authorizationCodeService) {
         this.config = config;
         this.authorizationCodeService = authorizationCodeService;
+        logger.info("Login Verifier initializing" );
 
     }
 
@@ -26,6 +27,7 @@ public class LoginVerifier implements Handler {
         String app = ctx.pathParam("app");
         String uuid = ctx.queryParam("uuid");
         String challenge= ctx.queryParam("challenge");
+        logger.info(String.format("params: app = %s, uuid = %s, challenge = %s",app,uuid,challenge));
         if (uuid == null || challenge == null){
             ctx.status(400);
             return;
@@ -59,7 +61,11 @@ public class LoginVerifier implements Handler {
         logger.info("ready to redir");
         boolean showScope = this.config.aprobeScope(app);
         if (!showScope){
-            ctx.redirect(authorizationCodeService.generateRedirectUrl(resource));
+            logger.info("show scope verification false => proceed to callback url");
+            String fullUrl= authorizationCodeService.generateRedirectUrl(resource);
+            logger.info(String.format(" * Url: %s",fullUrl));
+            ctx.redirect(fullUrl);
+
             return;
         }else{
             // pintar la aprobacion//

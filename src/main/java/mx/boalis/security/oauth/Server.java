@@ -26,6 +26,7 @@ public class Server {
         app.get("/:app/verify", new LoginVerifier(tenantConfigService, authorizationCodeService));
         app.post("/:app/token", new TokenIssuer());
         app.get("/:app/session/:what/:key", new SecuritySession());
+
     }
 
 }

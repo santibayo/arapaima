@@ -40,6 +40,7 @@ public class HashMapSession implements LoginSession {
         this.session.remove(uuid);
         logger.info("session updated!");
         logger.info(String.format("uuid: %s => %s",uuid,session.toString()));
+
     }
 
     @Override

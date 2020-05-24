@@ -27,7 +27,7 @@ public class HardCodedTenantConfigService implements TenantConfigService {
     }
 
     public String getLoginUrl(String tenant){
-        return "https://www.google.com/?uuid=%s";
+        return "http://sample.login/?uuid=%s";
     }
 
     @Override

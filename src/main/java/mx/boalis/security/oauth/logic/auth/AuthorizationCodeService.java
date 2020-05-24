@@ -81,6 +81,7 @@ public class AuthorizationCodeService {
         resourceOwnerBean.setResponseType(tokenData.get("type"));
         resourceOwnerBean.setState(tokenData.get("state"));
         resourceOwnerBean.setRedirectUrl(tokenData.get("redir"));
+        resourceOwnerBean.setCode(code);
         return resourceOwnerBean;
     }
 
@@ -89,11 +90,21 @@ public class AuthorizationCodeService {
         return String.valueOf(number.nextInt(1000000));
     }
 
+    protected void avoidAditionalRequest(String uuid){
+        Map<String, String> userData = session.get(uuid);
+        if (userData!=null) {
+            userData.remove("login_challenge");
+            session.update(uuid,userData);
+        }
+    }
+
     public final String generateRedirectUrl(ResourceOwnerBean resourceOwnerBean){
         String url = null;
         try {
             url = resourceOwnerBean.getRedirectUrl()+"?state="+ URLEncoder.encode(resourceOwnerBean.getState(),
-                    "UTF-8")+"&authorization_code="+URLEncoder.encode(resourceOwnerBean.getCode(),"UTF-8");
+                    "UTF-8")+"&authorization_code="+URLEncoder.encode(resourceOwnerBean.getCode(),
+                    "UTF-8");
+            logger.info(String.format("redirect url = %s",url) );
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

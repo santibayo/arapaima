@@ -39,7 +39,7 @@ public class LoginDispatcher implements Handler {
         resourceOwnerBean.setState(state);
         resourceOwnerBean.setResponseType(responseType);
 
-        boolean isValid = validateAuthRequestService.validate(resourceOwnerBean);
+        boolean isValid = validateAuthRequestService.validate(resourceOwnerBean,uuid);
 
         if (!isValid){
             sendError(ctx,"","");
