@@ -13,4 +13,6 @@ public interface TenantConfigService {
     public boolean verifyCredencials(String app,String clientID,String clientSecret);
     public String getClientId(String tenant) ;
     public String getClientUrl(String tenant);
+    public boolean hasMultipleSessionsAllowed(String tenant);
+
 }

@@ -54,13 +54,13 @@ public class HashMapSession implements LoginSession {
     }
 
     @Override
-    public Map<String, String> getLoginDataByCode(String code) {
+    public String getLoginKeyByCode(String code) {
         String uuid = (String)session.get("login_"+code);
         if (uuid==null){
             return null;
         }
         session.remove("login_"+code);
-        return this.get(uuid);
+        return uuid;
     }
 
 

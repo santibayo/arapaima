@@ -44,26 +44,9 @@ public class AuthorizationCodeService {
         }
         return false;
     }
-
+    // TODO improve method
     protected Map<String,String> getUserTokenMap(String tenant,String uuid){
         Map<String, String> userData = session.get(uuid);
-        /*Map<String,String> mappings = this.config.getMapping(tenant);
-        Iterator<String> keys = mappings.keySet().iterator();
-        Map<String,String> tokenData = new HashMap<>();
-
-        while (keys.hasNext()){
-            String tokenKey = keys.next();
-            String idKey = mappings.get(tokenKey); //dato que venia en el json
-            if (idKey!=null) {
-                String userDataValue = userData.get(idKey);
-                if (userData != null) {
-                    tokenData.put(tokenKey, userDataValue);
-                }
-            }
-        }*/
-        /* String [] data = null;
-        Set<String> atts = null;
-         */
         return userData;
     }
 

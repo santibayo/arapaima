@@ -9,5 +9,5 @@ public interface LoginSession {
     public void clear(String uuid);
     public boolean verify(String uuid);
     public void linkCode(String code,String uuid);
-    public Map<String,String> getLoginDataByCode(String code);
+    public String getLoginKeyByCode(String code);
 }
