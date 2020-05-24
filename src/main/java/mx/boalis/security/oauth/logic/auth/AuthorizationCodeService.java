@@ -1,0 +1,106 @@
+package mx.boalis.security.oauth.logic.auth;
+
+import mx.boalis.security.oauth.beans.ResourceOwnerBean;
+import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.logic.config.KeyNotFound;
+import mx.boalis.security.oauth.logic.config.TenantConfigService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
+import java.util.*;
+
+public class AuthorizationCodeService {
+    private final Logger logger = LoggerFactory.getLogger(AuthorizationCodeService.class);
+    private final TenantConfigService config;
+    private final LoginSession session;
+
+
+    public AuthorizationCodeService(TenantConfigService config, LoginSession session) {
+        this.config = config;
+        this.session = session;
+    }
+
+    public final boolean matchesAnyScope(String tenant,String uuid){
+        List<String> scopes = this.config.getDeclaredTenantScopes(tenant);
+        Map<String,String> sessionData = session.get(uuid);
+        String [] reqScopes = sessionData.get("scope").split(" ");
+        for (String reqScope: reqScopes){
+            if (scopes.contains(reqScope)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public final boolean verifyChallenge(String uuid,String challenge){
+        Map<String, String> userData = session.get(uuid);
+        if (userData==null) return false;
+        String storedChallenge = userData.get("login_challenge");
+        if (storedChallenge.equals(challenge)){
+            return true;
+        }
+        return false;
+    }
+
+    protected Map<String,String> getUserTokenMap(String tenant,String uuid){
+        Map<String, String> userData = session.get(uuid);
+        /*Map<String,String> mappings = this.config.getMapping(tenant);
+        Iterator<String> keys = mappings.keySet().iterator();
+        Map<String,String> tokenData = new HashMap<>();
+
+        while (keys.hasNext()){
+            String tokenKey = keys.next();
+            String idKey = mappings.get(tokenKey); //dato que venia en el json
+            if (idKey!=null) {
+                String userDataValue = userData.get(idKey);
+                if (userData != null) {
+                    tokenData.put(tokenKey, userDataValue);
+                }
+            }
+        }*/
+        /* String [] data = null;
+        Set<String> atts = null;
+         */
+        return userData;
+    }
+
+    public ResourceOwnerBean getAuthorizationCode(String tenant, String uuid)throws KeyNotFound {
+        String issuer = this.config.getIssuer(tenant);
+        if (issuer==null){
+            throw new KeyNotFound();
+        }
+        Map<String,String> tokenData = this.getUserTokenMap(tenant,uuid);
+        tokenData.put("issuer",issuer);
+        String code = this.generateAuthorizationCode();
+        tokenData.put("code",code);
+        session.linkCode(code,uuid);
+        ResourceOwnerBean resourceOwnerBean = new ResourceOwnerBean();
+        resourceOwnerBean.setResponseType(tokenData.get("type"));
+        resourceOwnerBean.setState(tokenData.get("state"));
+        resourceOwnerBean.setRedirectUrl(tokenData.get("redir"));
+        return resourceOwnerBean;
+    }
+
+    protected String generateAuthorizationCode(){
+        SecureRandom number = new SecureRandom();
+        return String.valueOf(number.nextInt(1000000));
+    }
+
+    public final String generateRedirectUrl(ResourceOwnerBean resourceOwnerBean){
+        String url = null;
+        try {
+            url = resourceOwnerBean.getRedirectUrl()+"?state="+ URLEncoder.encode(resourceOwnerBean.getState(),
+                    "UTF-8")+"&authorization_code="+URLEncoder.encode(resourceOwnerBean.getCode(),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+
+
+
+}
