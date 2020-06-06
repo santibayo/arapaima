@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="038a0a83-fd08-444c-b89a-ba251badde92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/LoginVerifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/LoginVerifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/TokenIssuer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/TokenIssuer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/HashMapSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/HashMapSession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/LoginSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/LoginSession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/SecuritySession.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/dao/SecuritySession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/auth/AuthorizationCodeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/auth/AuthorizationCodeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/HardCodedTenantConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/HardCodedTenantConfigService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/TenantConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/TenantConfigService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/controllers/TokenIssuer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/controllers/TokenIssuer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/logic/config/HardCodedTenantConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/logic/config/HardCodedTenantConfigService.java" afterDir="false" />
-    </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="038a0a83-fd08-444c-b89a-ba251badde92" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,22 +25,19 @@
   </component>
   <component name="ProjectId" id="1cEASqLZgq03idYHLGExW5VkSb9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="mx.boalis.security.oauth.logic" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -101,7 +77,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
