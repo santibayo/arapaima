@@ -19,7 +19,7 @@ public class Server {
         ValidateAuthRequestService validateAuthRequestService = new ValidateAuthRequestService(tenantConfigService);
         LoginSession session = new HashMapSession();
         AuthorizationCodeService authorizationCodeService= new AuthorizationCodeService(tenantConfigService,session);
-        TokenService tokenService = new TokenService(appClientsDao);
+        TokenService tokenService = new TokenService(appClientsDao, clientSessionDao);
         // controllers
         app.get("/:app/auth", new LoginDispatcher(validateAuthRequestService, tenantConfigService,session));
         app.post("/:app/load", new LoginOutOfBound(session));
