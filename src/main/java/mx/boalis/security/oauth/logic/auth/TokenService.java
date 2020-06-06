@@ -1,13 +1,20 @@
 package mx.boalis.security.oauth.logic.auth;
 
 import mx.boalis.security.oauth.beans.OAuthTokenBean;
+import mx.boalis.security.oauth.dao.AppClientsDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
+
 
 public class TokenService {
-    private final Logger logger = LoggerFactory.getLogger(AuthorizationCodeService.class);
+    private final Logger logger = LoggerFactory.getLogger(TokenService.class);
+    private final AppClientsDao appClientsDao;
+
+    public TokenService(AppClientsDao appClientsDao) {
+        this.appClientsDao = appClientsDao;
+    }
+
 
     public boolean hasAnotherSecuritySession(String subject){
         return false;
