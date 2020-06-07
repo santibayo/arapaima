@@ -3,7 +3,7 @@ package mx.boalis.security.oauth.controllers;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import mx.boalis.security.oauth.beans.OAuthTokenBean;
-import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.dao.LoginSessionDao;
 import mx.boalis.security.oauth.logic.auth.TokenService;
 import mx.boalis.security.oauth.logic.config.TenantConfigService;
 import org.jetbrains.annotations.NotNull;
@@ -15,12 +15,12 @@ import java.util.Map;
 public class TokenIssuer implements Handler {
     private final Logger logger = LoggerFactory.getLogger(TokenIssuer.class);
     private final TokenService tokenService;
-    private final LoginSession loginSession;
+    private final LoginSessionDao loginSessionDao;
     private final TenantConfigService configService;
 
-    public TokenIssuer(TokenService tokenService, LoginSession loginSession, TenantConfigService configService) {
+    public TokenIssuer(TokenService tokenService, LoginSessionDao loginSessionDao, TenantConfigService configService) {
         this.tokenService = tokenService;
-        this.loginSession = loginSession;
+        this.loginSessionDao = loginSessionDao;
         this.configService = configService;
     }
 
@@ -45,14 +45,14 @@ public class TokenIssuer implements Handler {
                 ctx.status(403);
                 return;
             }
-            String uuid = loginSession.getLoginKeyByCode(code);
+            String uuid = loginSessionDao.getLoginKeyByCode(code);
             if (uuid==null){
                 ctx.status(404);
                 logger.info("trying to recover previous code ");
                 return;
             }
-            Map<String,String> userData = loginSession.get(uuid);
-            loginSession.clear(uuid);
+            Map<String,String> userData = loginSessionDao.get(uuid);
+            loginSessionDao.clear(uuid);
             logger.info(String.format(" performing clean up: uuid = %s, data => %s",uuid,userData.toString()) );
             String subject = userData.get("subject");
             boolean hasMoreSessions = tokenService.hasAnotherSecuritySession(tenant,subject);

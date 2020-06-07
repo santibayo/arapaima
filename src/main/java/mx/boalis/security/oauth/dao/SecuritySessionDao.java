@@ -2,7 +2,7 @@ package mx.boalis.security.oauth.dao;
 
 import java.util.Map;
 
-public interface SecuritySession {
+public interface SecuritySessionDao {
 
     public void createSessionData(String tenant,String subject, Map<String,String> userData, String accessToken, String refreshToken);
 

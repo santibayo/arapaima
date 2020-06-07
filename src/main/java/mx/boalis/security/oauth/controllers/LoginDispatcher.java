@@ -5,19 +5,24 @@ import io.javalin.http.Handler;
 import mx.boalis.security.oauth.beans.ResourceOwnerBean;
 import mx.boalis.security.oauth.logic.config.TenantConfigService;
 import mx.boalis.security.oauth.logic.auth.ValidateAuthRequestService;
-import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.dao.LoginSessionDao;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Controller to redirect to an authentication server for credentials authentication.
+ */
 public class LoginDispatcher implements Handler {
     private final ValidateAuthRequestService validateAuthRequestService;
     private final TenantConfigService tenantConfigService;
-    private final LoginSession session;
+    private final LoginSessionDao session;
 
-    public LoginDispatcher(ValidateAuthRequestService validateAuthRequestService, TenantConfigService tenantConfigService, LoginSession session) {
+
+
+    public LoginDispatcher(ValidateAuthRequestService validateAuthRequestService, TenantConfigService tenantConfigService, LoginSessionDao session) {
         this.validateAuthRequestService = validateAuthRequestService;
         this.tenantConfigService = tenantConfigService;
         this.session = session;

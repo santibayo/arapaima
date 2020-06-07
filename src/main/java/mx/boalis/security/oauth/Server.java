@@ -5,7 +5,7 @@ import mx.boalis.security.oauth.controllers.*;
 import mx.boalis.security.oauth.controllers.SecuritySession;
 import mx.boalis.security.oauth.dao.*;
 import mx.boalis.security.oauth.dao.impl.AppClientsDaoImpl;
-import mx.boalis.security.oauth.dao.impl.HashMapSessionImpl;
+import mx.boalis.security.oauth.dao.impl.HashMapSessionDaoImpl;
 import mx.boalis.security.oauth.logic.auth.AuthorizationCodeService;
 import mx.boalis.security.oauth.logic.auth.TokenService;
 import mx.boalis.security.oauth.logic.config.TenantConfigService;
@@ -19,10 +19,10 @@ public class Server {
         // Services
         TenantConfigService tenantConfigService = new HardCodedTenantConfigService();
         ValidateAuthRequestService validateAuthRequestService = new ValidateAuthRequestService(tenantConfigService);
-        LoginSession session = new HashMapSessionImpl();
+        LoginSessionDao session = new HashMapSessionDaoImpl();
         AuthorizationCodeService authorizationCodeService= new AuthorizationCodeService(tenantConfigService,session);
         AppClientsDaoImpl appClientsDaoImpl = null;
-        ClientSessionDao clientSessionDao = null;
+        SecuritySessionDao clientSessionDao = null;
         TokenService tokenService = new TokenService(appClientsDaoImpl, clientSessionDao);
         // controllers
         app.get("/:app/auth", new LoginDispatcher(validateAuthRequestService, tenantConfigService,session));

@@ -100,9 +100,21 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591554121468">
+    <state x="533" y="178" key="#com.intellij.ide.util.MemberChooser" timestamp="1591554776816">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1591554121468" />
+    <state x="533" y="178" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1591554776816" />
+    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591554515947">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1591554515947" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591554561753">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1591554561753" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1591554724609">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1591554724609" />
   </component>
 </project>

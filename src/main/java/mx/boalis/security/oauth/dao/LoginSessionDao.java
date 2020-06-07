@@ -2,7 +2,7 @@ package mx.boalis.security.oauth.dao;
 
 import java.util.Map;
 
-public interface LoginSession {
+public interface LoginSessionDao {
     public void create(String uuid, Map<String,String> challengeData);
     public void update(String uuid, Map<String,String> loginData);
     public Map<String,String> get(String uuid);

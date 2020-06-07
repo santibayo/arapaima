@@ -1,7 +1,7 @@
 package mx.boalis.security.oauth.logic.auth;
 
 import mx.boalis.security.oauth.beans.ResourceOwnerBean;
-import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.dao.LoginSessionDao;
 import mx.boalis.security.oauth.logic.config.KeyNotFound;
 import mx.boalis.security.oauth.logic.config.TenantConfigService;
 import org.slf4j.Logger;
@@ -15,10 +15,10 @@ import java.util.*;
 public class AuthorizationCodeService {
     private final Logger logger = LoggerFactory.getLogger(AuthorizationCodeService.class);
     private final TenantConfigService config;
-    private final LoginSession session;
+    private final LoginSessionDao session;
 
 
-    public AuthorizationCodeService(TenantConfigService config, LoginSession session) {
+    public AuthorizationCodeService(TenantConfigService config, LoginSessionDao session) {
         this.config = config;
         this.session = session;
     }

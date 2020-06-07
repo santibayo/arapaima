@@ -1,15 +1,15 @@
 package mx.boalis.security.oauth.dao.impl;
 
-import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.dao.LoginSessionDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class HashMapSessionImpl implements LoginSession {
+public class HashMapSessionDaoImpl implements LoginSessionDao {
     private final Map session = new HashMap<String,Map<String,String>>();
-    private final Logger logger = LoggerFactory.getLogger(HashMapSessionImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(HashMapSessionDaoImpl.class);
     @Override
     public void create(String uuid, Map<String, String> challengeData) {
         session.put(uuid,challengeData);

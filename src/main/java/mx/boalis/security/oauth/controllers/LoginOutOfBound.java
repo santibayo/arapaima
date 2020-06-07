@@ -3,8 +3,8 @@ package mx.boalis.security.oauth.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import mx.boalis.security.oauth.dao.impl.HashMapSessionImpl;
-import mx.boalis.security.oauth.dao.LoginSession;
+import mx.boalis.security.oauth.dao.impl.HashMapSessionDaoImpl;
+import mx.boalis.security.oauth.dao.LoginSessionDao;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +12,10 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 public class LoginOutOfBound implements Handler {
-    private final LoginSession session;
-    private final Logger logger = LoggerFactory.getLogger(HashMapSessionImpl.class);
+    private final LoginSessionDao session;
+    private final Logger logger = LoggerFactory.getLogger(HashMapSessionDaoImpl.class);
 
-    public LoginOutOfBound(LoginSession session) {
+    public LoginOutOfBound(LoginSessionDao session) {
         this.session = session;
     }
     // Tiene que estar autenticada via Basic
