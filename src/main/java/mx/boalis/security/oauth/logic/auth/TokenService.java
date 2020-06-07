@@ -1,7 +1,7 @@
 package mx.boalis.security.oauth.logic.auth;
 
 import mx.boalis.security.oauth.beans.OAuthTokenBean;
-import mx.boalis.security.oauth.dao.AppClientsDao;
+import mx.boalis.security.oauth.dao.impl.AppClientsDaoImpl;
 import mx.boalis.security.oauth.dao.ClientSessionDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +11,11 @@ import java.util.Map;
 
 public class TokenService {
     private final Logger logger = LoggerFactory.getLogger(TokenService.class);
-    private final AppClientsDao appClientsDao;
+    private final AppClientsDaoImpl appClientsDaoImpl;
     private final ClientSessionDao clientSessionDao;
 
-    public TokenService(AppClientsDao appClientsDao, ClientSessionDao clientSessionDao) {
-        this.appClientsDao = appClientsDao;
+    public TokenService(AppClientsDaoImpl appClientsDaoImpl, ClientSessionDao clientSessionDao) {
+        this.appClientsDaoImpl = appClientsDaoImpl;
         this.clientSessionDao = clientSessionDao;
     }
 
@@ -25,7 +25,7 @@ public class TokenService {
     }
 
     public boolean areCredentialsValid(String app,String clientId,String secretClient){
-        String daoSecret = this.appClientsDao.getCredentials(app,clientId);
+        String daoSecret = this.appClientsDaoImpl.getCredentials(app,clientId);
         return daoSecret.equals(secretClient);
     }
 

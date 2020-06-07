@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="038a0a83-fd08-444c-b89a-ba251badde92" name="Default Changelist" comment="" />
+    <list default="true" id="038a0a83-fd08-444c-b89a-ba251badde92" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/logic/auth/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/logic/auth/TokenService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,11 +16,18 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -35,6 +46,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="mx.boalis.security.oauth.dao" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="mx.boalis.security.oauth.logic" />
     </key>
@@ -84,5 +98,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591554121468">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1591554121468" />
   </component>
 </project>

@@ -2,13 +2,15 @@ package mx.boalis.security.oauth;
 
 import io.javalin.Javalin;
 import mx.boalis.security.oauth.controllers.*;
+import mx.boalis.security.oauth.controllers.SecuritySession;
+import mx.boalis.security.oauth.dao.*;
+import mx.boalis.security.oauth.dao.impl.AppClientsDaoImpl;
+import mx.boalis.security.oauth.dao.impl.HashMapSessionImpl;
 import mx.boalis.security.oauth.logic.auth.AuthorizationCodeService;
 import mx.boalis.security.oauth.logic.auth.TokenService;
 import mx.boalis.security.oauth.logic.config.TenantConfigService;
 import mx.boalis.security.oauth.logic.config.HardCodedTenantConfigService;
 import mx.boalis.security.oauth.logic.auth.ValidateAuthRequestService;
-import mx.boalis.security.oauth.dao.HashMapSession;
-import mx.boalis.security.oauth.dao.LoginSession;
 
 public class Server {
 
@@ -17,9 +19,11 @@ public class Server {
         // Services
         TenantConfigService tenantConfigService = new HardCodedTenantConfigService();
         ValidateAuthRequestService validateAuthRequestService = new ValidateAuthRequestService(tenantConfigService);
-        LoginSession session = new HashMapSession();
+        LoginSession session = new HashMapSessionImpl();
         AuthorizationCodeService authorizationCodeService= new AuthorizationCodeService(tenantConfigService,session);
-        TokenService tokenService = new TokenService(appClientsDao, clientSessionDao);
+        AppClientsDaoImpl appClientsDaoImpl = null;
+        ClientSessionDao clientSessionDao = null;
+        TokenService tokenService = new TokenService(appClientsDaoImpl, clientSessionDao);
         // controllers
         app.get("/:app/auth", new LoginDispatcher(validateAuthRequestService, tenantConfigService,session));
         app.post("/:app/load", new LoginOutOfBound(session));

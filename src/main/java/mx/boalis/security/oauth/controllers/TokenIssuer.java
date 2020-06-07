@@ -39,7 +39,7 @@ public class TokenIssuer implements Handler {
 
         if (grantType.equals("authorization_code")){
             logger.info("request type: authorization code");
-            boolean areValidCreds = tokenService.areCredentialsValid(clientId,clientSecret);
+            boolean areValidCreds = tokenService.areCredentialsValid(tenant,clientId,clientSecret);
             if (!areValidCreds){
                 logger.error("Bad credentials request: code = %s, client_id = %s",code,clientId);
                 ctx.status(403);
@@ -55,7 +55,7 @@ public class TokenIssuer implements Handler {
             loginSession.clear(uuid);
             logger.info(String.format(" performing clean up: uuid = %s, data => %s",uuid,userData.toString()) );
             String subject = userData.get("subject");
-            boolean hasMoreSessions = tokenService.hasAnotherSecuritySession(subject);
+            boolean hasMoreSessions = tokenService.hasAnotherSecuritySession(tenant,subject);
             if (hasMoreSessions){
                 boolean canCreateMultipleSessions = configService.hasMultipleSessionsAllowed(tenant);
                 if (!canCreateMultipleSessions){
@@ -64,7 +64,7 @@ public class TokenIssuer implements Handler {
                     return;
                 }
             }
-            OAuthTokenBean response = tokenService.issueTokens(userData);
+            OAuthTokenBean response = tokenService.issueTokens(tenant,userData);
             logger.info("tokens generated.");
             /*
             if (redirectUri != null){

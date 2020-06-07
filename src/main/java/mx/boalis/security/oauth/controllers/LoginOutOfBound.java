@@ -3,7 +3,7 @@ package mx.boalis.security.oauth.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import mx.boalis.security.oauth.dao.HashMapSession;
+import mx.boalis.security.oauth.dao.impl.HashMapSessionImpl;
 import mx.boalis.security.oauth.dao.LoginSession;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class LoginOutOfBound implements Handler {
     private final LoginSession session;
-    private final Logger logger = LoggerFactory.getLogger(HashMapSession.class);
+    private final Logger logger = LoggerFactory.getLogger(HashMapSessionImpl.class);
 
     public LoginOutOfBound(LoginSession session) {
         this.session = session;
