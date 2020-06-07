@@ -31,6 +31,8 @@ public class Server {
         app.post("/:app/token", new TokenIssuer(tokenService, session,tenantConfigService));
         app.get("/:app/session/:what/:key", new SecuritySession());
 
+
+
     }
 
 }
