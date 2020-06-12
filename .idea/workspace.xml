@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="038a0a83-fd08-444c-b89a-ba251badde92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/beans/SessionBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/beans/OAuthTokenBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/beans/ResourceOwnerBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/LoginDispatcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/LoginOutOfBound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/LoginVerifier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/SecuritySession.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/controllers/TokenIssuer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/Root.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/auth/AuthorizationCodeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/auth/TokenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/auth/ValidateAuthRequestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/HardCodedTenantConfigService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/KeyNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/mx/boalis/security/oauth/logic/config/TenantConfigService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/dao/SecuritySessionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/dao/SecuritySessionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/dao/impl/SecuritySessionDaoHazelcastImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/boalis/security/oauth/dao/impl/SecuritySessionDaoHazelcastImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,10 +106,11 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="178" key="#com.intellij.ide.util.MemberChooser" timestamp="1591557047232">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="711" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1591998438146">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="533" y="178" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1591557047232" />
+    <state x="711" y="210" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057/1920.23.1440.877@0.23.1920.1057" timestamp="1591998438146" />
     <state x="280" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591554515947">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -136,13 +119,19 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1591554561753" />
-    <state x="413" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1591556811284">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="551" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1591997309734">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="413" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1591556811284" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1591556862776">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="551" y="350" key="com.intellij.ide.util.TipDialog/0.23.1920.1057/1920.23.1440.877@0.23.1920.1057" timestamp="1591997309734" />
+    <state x="385" y="211" key="run.anything.popup" timestamp="1591998505885">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="385" y="211" key="run.anything.popup/0.23.1920.1057/1920.23.1440.877@0.23.1920.1057" timestamp="1591998505885" />
+    <state x="513" y="252" width="894" height="815" key="search.everywhere.popup" timestamp="1591998532411">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1591556862776" />
+    <state x="513" y="252" width="894" height="815" key="search.everywhere.popup/0.23.1920.1057/1920.23.1440.877@0.23.1920.1057" timestamp="1591998532411" />
   </component>
 </project>
